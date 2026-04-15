@@ -97,7 +97,7 @@ Without a common prefix, Vite's dev proxy and nginx's `location` rules would cla
 **Prerequisites:** Docker Desktop only. No Go, Node, or PostgreSQL required.
 
 ```bash
-git clone https://github.com/jyothiswarup/taskflow-jyothiswarup
+git clone https://github.com/swarupe7/taskflow-jyothiswarup
 cd taskflow-jyothiswarup
 cp .env.example .env
 docker compose up
