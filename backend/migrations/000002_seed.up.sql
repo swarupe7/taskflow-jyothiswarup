@@ -1,8 +1,6 @@
--- Seed data for TaskFlow
--- Test user password is: password123
--- Hash generated with bcrypt cost 12
+-- Seed data — runs after 000001_init.up.sql so all tables already exist.
+-- Password for all seed users: password123 (bcrypt cost 12)
 
--- Insert a test user with a known password
 INSERT INTO users (id, name, email, password, created_at)
 VALUES (
     'a0000000-0000-0000-0000-000000000001',
@@ -12,7 +10,6 @@ VALUES (
     NOW()
 ) ON CONFLICT (email) DO NOTHING;
 
--- Insert a second user for assignee testing
 INSERT INTO users (id, name, email, password, created_at)
 VALUES (
     'a0000000-0000-0000-0000-000000000002',
@@ -22,7 +19,6 @@ VALUES (
     NOW()
 ) ON CONFLICT (email) DO NOTHING;
 
--- Insert a sample project owned by the test user
 INSERT INTO projects (id, name, description, owner_id, created_at)
 VALUES (
     'b0000000-0000-0000-0000-000000000001',
@@ -32,7 +28,6 @@ VALUES (
     NOW()
 ) ON CONFLICT DO NOTHING;
 
--- Insert three tasks with different statuses
 INSERT INTO tasks (id, title, description, status, priority, project_id, assignee_id, due_date, created_at, updated_at)
 VALUES
     (

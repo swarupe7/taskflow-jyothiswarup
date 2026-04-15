@@ -1,7 +1,7 @@
 # ── Stage 1: Build ─────────────────────────────────────────────────────────────
 # Use the full Go toolchain image to compile the binary.
 # Everything in this stage is discarded in the final image — no Go compiler in prod.
-FROM golang:1.22-alpine AS builder
+FROM golang:1.26-alpine AS builder
 
 # Install git and ca-certificates (needed for go get over HTTPS)
 RUN apk add --no-cache git ca-certificates

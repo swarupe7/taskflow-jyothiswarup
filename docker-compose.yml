@@ -14,8 +14,7 @@ services:
     volumes:
       # Named volume persists data across container restarts
       - postgres_data:/var/lib/postgresql/data
-      # Seed script runs automatically when the DB is first initialized
-      - ./backend/seed.sql:/docker-entrypoint-initdb.d/02_seed.sql
+      # Seed data is applied by the Go backend via migrations/000002_seed.up.sql
     ports:
       - "5432:5432"
     healthcheck:

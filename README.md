@@ -133,26 +133,6 @@ npm run dev
 
 Migrations run **automatically on every container start**. `golang-migrate` tracks applied migrations in a `schema_migrations` table and only applies new ones — it is safe to restart the container repeatedly.
 
-**Manual migration commands (if needed)**
-
-```bash
-# Apply all pending migrations
-docker run --rm \
-  -v $(pwd)/backend/migrations:/migrations \
-  --network taskflow-jyothiswarup_default \
-  migrate/migrate \
-  -path=/migrations \
-  -database "postgres://taskflow:taskflow_secret@postgres:5432/taskflow?sslmode=disable" up
-
-# Roll back all migrations
-docker run --rm \
-  -v $(pwd)/backend/migrations:/migrations \
-  --network taskflow-jyothiswarup_default \
-  migrate/migrate \
-  -path=/migrations \
-  -database "postgres://taskflow:taskflow_secret@postgres:5432/taskflow?sslmode=disable" down
-```
-
 ---
 
 ## 6. Test Credentials
