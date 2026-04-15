@@ -1,0 +1,20 @@
+# Secrets — NEVER commit .env
+.env
+*.env.local
+
+# Go
+backend/server
+backend/*.exe
+
+# Node / frontend
+frontend/node_modules/
+frontend/dist/
+
+# Editor
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,83 @@
+/* Tailwind base, component, and utility layers */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Google Fonts ─────────────────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ── Base styles ──────────────────────────────────────────────────────────── */
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    /* Soft green-tinted background — the "greenery" base */
+    @apply bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50
+           text-gray-900
+           dark:from-gray-950 dark:via-gray-900 dark:to-gray-950
+           dark:text-gray-100
+           min-h-screen;
+  }
+
+  * {
+    @apply border-gray-200 dark:border-gray-700;
+  }
+}
+
+/* ── Reusable component classes ───────────────────────────────────────────── */
+@layer components {
+  /* Card — clean white container with subtle green-tinted shadow */
+  .card {
+    @apply bg-white dark:bg-gray-900 rounded-2xl border border-gray-200
+           dark:border-gray-700 shadow-sm;
+  }
+
+  /* Standard input */
+  .input {
+    @apply w-full px-3 py-2 rounded-xl border bg-white dark:bg-gray-800
+           text-sm placeholder:text-gray-400
+           focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-transparent
+           disabled:opacity-50 disabled:cursor-not-allowed
+           transition-shadow;
+  }
+
+  /* Primary button — green */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl
+           bg-brand-600 text-white text-sm font-semibold
+           hover:bg-brand-700 active:scale-95
+           shadow-sm hover:shadow-md
+           transition-all duration-150
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100;
+  }
+
+  /* Secondary/outline button */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl
+           border bg-white dark:bg-gray-800 text-sm font-medium
+           hover:bg-gray-50 dark:hover:bg-gray-700 active:scale-95
+           transition-all duration-150
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Danger button */
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl
+           bg-red-600 text-white text-sm font-semibold
+           hover:bg-red-700 active:scale-95 transition-all
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Form label */
+  .label {
+    @apply block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1;
+  }
+
+  /* Error text below form fields */
+  .field-error {
+    @apply text-xs text-red-500 mt-1;
+  }
+}
